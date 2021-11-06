@@ -3,8 +3,8 @@
 Integrantes:
 <ul>
   <li>Luz Angela Abril</li>
-Ciro Angarita Camelo
-Leidy Romero Alvarado
-Carlos Suarez silva
-Andres Rivera Vega
+  <li>Ciro Angarita Camelo</li>
+  <li>Leidy Romero Alvarado</li>
+  <li>Carlos Suarez silva</li>
+  <li>Andres Rivera Vega</li>
   </ul>
