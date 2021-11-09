@@ -12,4 +12,7 @@ Para este proyecto se busca análizar, diseñar y construir un WebApp para admin
 > [Andrés Rivera Vega:](https://github.com/TeamARV) 
 Soy estudiante de ingeniería mecatrónica, me apasiona todo lo relacionado con la tecnología en general y los videojuegos. Estoy aquí porque deseo mejorar mis habilidades en  programación. 
 
+> [Luz Angela Abril Luna:](https://github.com/laabril01/i) 
+Soy Licenciada en Química y Magíster en Ciencias-Química. Estoy interesada en adquirir conocimientos y habilidades en programación como un complemento de mi carrera.
+
 
