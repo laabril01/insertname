@@ -15,4 +15,7 @@ Soy estudiante de ingeniería mecatrónica, me apasiona todo lo relacionado con 
 > [Luz Angela Abril Luna:](https://github.com/laabril01/i) 
 Soy Licenciada en Química y Magíster en Ciencias-Química. Estoy interesada en adquirir conocimientos y habilidades en programación como un complemento de mi carrera.
 
+[ Leidy Romero Alvarado:](https://github.com/leidyromero-14)
+Soy Ingeniera Mecatronica, me gusta aprender y esta experiencia en programar en web. es un reto que me ayudara a crecer en mi carrera profesional  
+
 
