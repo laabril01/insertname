@@ -19,3 +19,5 @@ Soy Licenciada en Química y Magíster en Ciencias-Química. Estoy interesada en
 Soy Ingeniera Mecatronica, me gusta aprender y esta experiencia en programar en web. es un reto que me ayudara a crecer en mi carrera profesional  
 
 
+[ Carlos Alberto Suarez:](https://github.com/BebetoSilva1986)
+Soy Ingeniero electrónico y especialista en gerencia de la calidad
