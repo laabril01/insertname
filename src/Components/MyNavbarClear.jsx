@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link    } from 'react-router-dom'
 
-import logo from "../Images/NameSVG.svg"
+
 
 import "../Styles/MyNavbar.css"
 
@@ -13,7 +13,7 @@ const MyNavbarClear = (props) => {
 
       <nav className="navbar navbar-expand-lg navbar-light  sticky-top ">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#"><img src={logo} className="img-fluid" alt="Responsive image"/></a>
+        <a className="navbar-brand" href="#"><img src="https://i.imgur.com/d215U6l.png" className="img-fluid" alt="Responsive image"/></a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
