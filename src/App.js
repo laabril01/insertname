@@ -14,7 +14,6 @@ import PlantillaLogin from "./Layout/PlantillaLogin";
 import PlantillaAdmin from "./Layout/PlantillaAdmin";
 
 
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap.bundle";
@@ -24,6 +23,14 @@ import { useState,useEffect } from 'react'
 import { UserContext } from "./Context/user";
 
 
+import {ApolloClient, ApolloProvider, createHttpLink , InMemoryCache} from "@apollo/client";
+
+/* const HttpLink = createHttpLink({uri:"http://localhost:3001/graphql"}) */
+
+const client = new ApolloClient({
+  uri:"http://localhost:3001/graphql",
+  cache: new InMemoryCache()
+})
 
 function App() {
 
@@ -31,7 +38,7 @@ function App() {
   
   return (
   <div>
-
+   <ApolloProvider client={client}>
     <UserContext.Provider value={{GlobalData,setGlobalData}}>
       
       <Router>
@@ -54,7 +61,7 @@ function App() {
           </Route>
       
           <Route path="/" element = {<Plantilla2/>}>
-          <Route path="Page4" element = {<Page4/>}/> 
+          <Route path="Page4/:_id" element = {<Page4/>}/> 
           <Route path="Page5" element = {<Page5/>}/> 
           <Route path="Page6" element = {<Page6/>}/> 
           <Route path="Page7" element = {<Page7/>}/> 
@@ -65,7 +72,7 @@ function App() {
       </Router>
 
       </UserContext.Provider>
-
+      </ApolloProvider>
   </div>
   );
 }
