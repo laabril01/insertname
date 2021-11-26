@@ -9,14 +9,14 @@ import '../Styles/Page3.css';
 /* MODULO GESTION USUARIOS ADMIN  podra cambiar el estado de los usuarios registrados   (pendiente - autorizado - no autorizado) */
 
 const Page3 = () => {
-
+  
     const {data,error,loading} = useQuery(obtenerUsuarios)
 
     useEffect (()=>{
-        
+      
         console.log(data , "los datos")
 
-    },[data])
+    },[error])
 
     if(loading) return <div> cargando informacion .........</div>
     return (
