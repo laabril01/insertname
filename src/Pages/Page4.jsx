@@ -11,7 +11,8 @@ import { EDITARUSUARIO } from '../graphql/usuarios/mutations';
 
 
 const Page4 = () => {
-    var formData = new FormData()
+    
+
 
     const notify = () => toast("La Info de usuario Fue Editada OK!!! 🐱‍💻" ); 
   
@@ -89,17 +90,22 @@ const Page4 = () => {
 
         <label for="correo" className=" col-form-label"> <strong>Correo</strong></label>
         <div className="col-sm-10">
-        <input type="text" className="form-control" id="correo" name="correo" defaultValue={getData.Usuarios[0].correo} onChange={(e)=>{ setcorreo(e.target.value)}} required />
+        <input type="email" className="form-control" id="correo" name="correo" defaultValue={getData.Usuarios[0].correo} onChange={(e)=>{ setcorreo(e.target.value)}} required />
         </div>
 
         <label for="clave" className=" col-form-label"> <strong>Clave</strong></label>
         <div className="col-sm-10">
-        <input type="text" className="form-control" id="clave" nombre="clave"  defaultValue={getData.Usuarios[0].clave} onChange={(e)=>{ setclave(e.target.value)}} required />
+        <input type="password" className="form-control" id="clave" nombre="clave"  defaultValue={getData.Usuarios[0].clave} onChange={(e)=>{ setclave(e.target.value)}} required />
         </div>
 
         <label for="Estado" className="col-form-label"> <strong>Estado</strong></label>
-        <div className="col-sm-10">
-        <input type="text" className="form-control" id="Estado" defaultValue={getData.Usuarios[0].estado} onChange={(e)=>{ setestado(e.target.value)}} required />
+        <div className="col-sm-4">
+        <select className="form-control" id="Estado" name="input" onChange={(e) => (setestado(e.target.value))}>
+        <option selected disabled value={getData.Usuarios[0].estado}>{getData.Usuarios[0].estado}</option>
+        <option value="Pendiente">Pendiente</option>
+        <option value="Autorizado">Autorizado</option>
+        <option value="NoAutorizado">NoAutorizado</option>
+        </select>
         </div>
 
         <label for="Identificacion" className="col-form-label"> <strong>Identificacion</strong></label>
@@ -115,6 +121,10 @@ const Page4 = () => {
         
         <button type="sumbit" value="Submit!" className="btn btn-dark col-sm-6" onClick = { ()=> console.log("boton click hi") }>Actualizar datos  💻 </button>
         <ToastContainer position="bottom-center" hideProgressBar={true} autoClose={1600}/>
+
+
+
+
 
 
   </div>

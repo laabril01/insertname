@@ -58,10 +58,11 @@ function App() {
 
           <Route path="/" element = {<PlantillaAdmin/>}>
           <Route path="Page3" element = {<Page3/>}/>
+          <Route path="Page4/:_id" element = {<Page4/>}/> 
           </Route>
       
           <Route path="/" element = {<Plantilla2/>}>
-          <Route path="Page4/:_id" element = {<Page4/>}/> 
+          
           <Route path="Page5" element = {<Page5/>}/> 
           <Route path="Page6" element = {<Page6/>}/> 
           <Route path="Page7" element = {<Page7/>}/> 
