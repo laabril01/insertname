@@ -1,25 +1,41 @@
 import React from 'react'
-import { useState} from 'react'
+import { useState , useEffect} from 'react'
+
 import { ToastContainer, toast } from 'react-toastify';
 import '../Styles/Page1.css';
+
+import { useMutation } from '@apollo/client';
+import { LOGIN } from '../graphql/usuarios/mutations';
+import { useLoginContext } from '../Context/loginContex';
+
 
 /* MODULO GESTION USUARIOS Registro */
 
 const Page1 = () => {
     
+  const {setToken} = useLoginContext()
+  const [login,{data:loginData,error:loginError,loading:loginLoading}] = useMutation(LOGIN)
 
+  useEffect (()=>{    if(loginData != undefined ){ setToken(loginData.login.token) }},[loginData])
 
     const [EMAIL, setEMAIL] = useState("")
     const [PASSWORD, setPASSWORD] = useState("")
-    const [usuario, setusuario] = useState()
+    
     
     const notify = () => toast("Logeando usuario 🖳" ); 
    
 
     const handleSubmit = (event) => 
     {
-      console.log(usuario);
+      
       event.preventDefault();
+
+      login({
+        variables:{
+            correo:EMAIL,
+            clave:PASSWORD,    
+        }
+    })
       notify()
     }
    
@@ -63,10 +79,7 @@ const Page1 = () => {
   <div className="form-group">
     <div className="row col-6">
       <button type="submit" className="btn btn-dark" 
-      onClick = { ()=> setusuario({
-        "email": EMAIL,
-        "password": PASSWORD,
-        }) } > <div className="h3"> ACCEDER </div>   </button>
+      onClick = { ()=> (console.log("click") ) } > <div className="h3"> ACCEDER </div>   </button>
       <ToastContainer position="bottom-center" hideProgressBar={true} autoClose={1600}/>
     </div>
     

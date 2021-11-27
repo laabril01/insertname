@@ -1,22 +1,33 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { obtenerUsuarios } from '../graphql/usuarios/queries';
+import { ELIMINARUSUARIO } from '../graphql/usuarios/mutations';
+import { useNavigate,    } from 'react-router';
 
 import '../Styles/Page3.css';
 
 /* MODULO GESTION USUARIOS ADMIN  podra cambiar el estado de los usuarios registrados   (pendiente - autorizado - no autorizado) */
 
 const Page3 = () => {
+
+  const navigatePage = useNavigate()
+  
+
+  const [eliminarUsuario,{data:deleteData,error:deleteError,loading:deleteLoading}] = useMutation(ELIMINARUSUARIO)
+
+  useEffect (()=>{    console.log(deleteData , "los datos del USUARIO deleteado")    },[deleteData])
   
     const {data,error,loading} = useQuery(obtenerUsuarios)
 
+
     useEffect (()=>{
       
-        console.log(data , "los datos")
+        console.log(data , "los datos");
+        
 
-    },[error])
+    },[error , deleteData])
 
     if(loading) return <div> cargando informacion .........</div>
     return (
@@ -57,7 +68,7 @@ const Page3 = () => {
             <td>{x.tipoUsuario}</td>
             <td>{x.estado}</td>
           <td><Link to={`/page4/${x._id}`}><button type="button" class="btn btn-outline-dark">✏️</button></Link></td>
-            <td><button type="button" class="btn btn-outline-dark">🗑️</button></td>
+          <td> <button type="button" class="btn btn-outline-dark" onClick = { ()=> ( eliminarUsuario({ variables:{id:x._id}} ,  window.location.reload()  )   )} >🗑️</button>  </td>
          
         
           </tr>

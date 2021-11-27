@@ -6,14 +6,39 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../Styles/Page2.css';
 import { CREARREGISTRO } from '../graphql/usuarios/mutations';
 import { useMutation, useQuery } from '@apollo/client';
+import { useNavigate } from 'react-router';
+import { useLoginContext } from '../Context/loginContex';
+
+
+
 
 /* MODULO GESTION USUARIOS login */
 
 const Page2 = () => {
 
-  const [CrearUsuario,{data:patchData,error:patchError,loading:patchLoading}] = useMutation(CREARREGISTRO)
+  const {setToken} = useLoginContext()
 
-  useEffect (()=>{  console.log(patchData , "los datos creados son ") },[patchData])
+  function sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+      currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+  }
+
+ 
+
+  const notify = () => {toast("Se envio la informacion 🐱‍💻 Sera redirigido al HOME" ); toast.onChange(console.log("asdfasdf se cerro"))  } ; 
+
+  const [CrearUsuario,{data:patchData,error:patchError,loading:patchLoading}] = useMutation(CREARREGISTRO)
+  const navigatePage = useNavigate()
+
+  useEffect (()=>{   
+    console.log(patchData , "los datos creados son ");
+    
+    if(patchData != undefined ){   setToken(patchData.crearRegistro.token )   }
+  
+  },[patchData])
 
   
   
@@ -24,13 +49,14 @@ const Page2 = () => {
   const [tipoUsuario, settipoUsuario] = useState()
   const [estado, setestado] = useState()
     
-    const notify = () => toast("Se envio la informacion 🐱‍💻" ); 
+    
    
 
     const handleSubmit = (event) => 
     {
       
       event.preventDefault();
+      
       CrearUsuario({
         variables:{
             correo:correo,
@@ -42,14 +68,16 @@ const Page2 = () => {
         }
     })
 
+    
+    notify() 
       
-      notify()
+      
     }
    
     
 
 
-    if(patchError) return <div> Datos duplicados o erroneos{window.location.reload}</div>
+    if(patchError) return <div> Datos duplicados o erroneos {navigatePage("/")}</div>
 
     return (
         <div className="bodyy">
@@ -100,8 +128,8 @@ const Page2 = () => {
     <div className="col-sm-5">
 
     <select className="form-control" id="Estado" name="input" required onChange={(e) => (settipoUsuario(e.target.value))}>
-        <option  selected Value="Estudiante" disabled >Seleccione Su Rol</option>
-        <option Value="Estudiante">Lider</option>
+        <option selected  disabled >Seleccione Su Rol</option>
+        <option value="Estudiante">Lider</option>
         <option value="Lider">Estudiante</option>
         </select>
         <small id="inputPassword3" >
@@ -116,8 +144,8 @@ const Page2 = () => {
   <div className="form-group">
     <div className="row col-6">
       <button type="submit" className="btn btn-dark" 
-      onClick = { ()=> ((console.log("click"))) } >Registro  💻 </button>
-      <ToastContainer position="bottom-center" hideProgressBar={true} autoClose={1600}/>
+      onClick = { ()=> (console.log("click"))} >Registro  💻 </button>
+      <ToastContainer position="bottom-center" hideProgressBar={false} autoClose={1000}/>
     </div>
   </div>
  

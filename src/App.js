@@ -21,25 +21,48 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import React from 'react'
 import { useState,useEffect } from 'react'
 import { UserContext } from "./Context/user";
+import { LoginContext } from "./Context/loginContex";
 
 
-import {ApolloClient, ApolloProvider, createHttpLink , InMemoryCache} from "@apollo/client";
+import {ApolloClient, ApolloProvider, createHttpLink , InMemoryCache } from "@apollo/client";
+import { setContext } from '@apollo/client/link/context';
 
-/* const HttpLink = createHttpLink({uri:"http://localhost:3001/graphql"}) */
+const httpLink = createHttpLink({uri:"http://localhost:3001/graphql"})
+
+const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
+  const token = JSON.parse(localStorage.getItem('TOKEN'));
+  // return the headers to the context so httpLink can read them
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
 
 const client = new ApolloClient({
-  uri:"http://localhost:3001/graphql",
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache()
 })
 
 function App() {
 
   const [GlobalData, setGlobalData] = useState([{nombre:'my first project',descripcion:'nada'}]);
+
+  const [loginToken, setloginToken] = useState("initialState")
+
+  const setToken = (token) =>{
+    setloginToken(token)
+    if(token){ localStorage.setItem("TOKEN", JSON.stringify(token))}
+
+  }
   
   return (
   <div>
    <ApolloProvider client={client}>
-    <UserContext.Provider value={{GlobalData,setGlobalData}}>
+    <LoginContext.Provider value ={{loginToken, setloginToken, setToken }} >
+    <UserContext.Provider value={{GlobalData,setGlobalData }}>
       
       <Router>
         <Routes> 
@@ -73,6 +96,7 @@ function App() {
       </Router>
 
       </UserContext.Provider>
+      </LoginContext.Provider>
       </ApolloProvider>
   </div>
   );

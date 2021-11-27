@@ -79,4 +79,36 @@ const CREARREGISTRO = gql`
   }
 `;
 
-export { EDITARUSUARIO, CREARUSUARIO , CREARREGISTRO };
+const ELIMINARUSUARIO = gql`
+  mutation EliminarUsuario($id: ID!) {
+    eliminarUsuario(_id: $id) {
+      _id
+      correo
+      identificacion
+      nombreCompleto
+      clave
+      tipoUsuario
+      estado
+    }
+  }
+`;
+
+const LOGIN = gql`
+  mutation login($correo: String!, $clave: String!) {
+    login(correo: $correo, clave: $clave) {
+      token
+      error
+    }
+  }
+`;
+
+const TESTTOKEN = gql`
+  mutation TestToken {
+  testToken {
+    token
+    error
+  }
+}
+`;
+
+export { EDITARUSUARIO, CREARUSUARIO, CREARREGISTRO, ELIMINARUSUARIO , LOGIN , TESTTOKEN };
