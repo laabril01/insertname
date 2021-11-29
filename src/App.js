@@ -19,7 +19,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap.bundle";
 
 import React from 'react'
-import { useState,useEffect } from 'react'
+import { useState } from 'react'
 import { UserContext } from "./Context/user";
 import { LoginContext } from "./Context/loginContex";
 
@@ -55,6 +55,7 @@ function App() {
   const setToken = (token) =>{
     setloginToken(token)
     if(token){ localStorage.setItem("TOKEN", JSON.stringify(token))}
+    /* else{localStorage.removeItem("TOKEN")}  */ // para hacer  me va servir logout
 
   }
   
@@ -81,6 +82,7 @@ function App() {
 
           <Route path="/" element = {<PlantillaAdmin/>}>
           <Route path="Page3" element = {<Page3/>}/>
+          <Route path="Page4" element = {<Page4/>}/> 
           <Route path="Page4/:_id" element = {<Page4/>}/> 
           </Route>
       

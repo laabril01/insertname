@@ -8,6 +8,9 @@ import { useNavigate,    } from 'react-router';
 
 import '../Styles/Page3.css';
 
+
+import jwt_decode from "jwt-decode";
+
 /* MODULO GESTION USUARIOS ADMIN  podra cambiar el estado de los usuarios registrados   (pendiente - autorizado - no autorizado) */
 
 const Page3 = () => {
@@ -38,7 +41,7 @@ const Page3 = () => {
             <span>MODULO GESTION USUARIOS ADMIN  podra cambiar el estado de los usuarios registrados   (pendiente - autorizado - no autorizado)</span>
 
             <div className="TablaDeUsuarios col-sm-8">
-            <table class="table table-Light table-hover">
+            <table className="table table-Light table-hover">
 
           
             <thead>
@@ -67,8 +70,8 @@ const Page3 = () => {
             <td>{x.clave}</td>
             <td>{x.tipoUsuario}</td>
             <td>{x.estado}</td>
-          <td><Link to={`/page4/${x._id}`}><button type="button" class="btn btn-outline-dark">✏️</button></Link></td>
-          <td> <button type="button" class="btn btn-outline-dark" onClick = { ()=> ( eliminarUsuario({ variables:{id:x._id}} ,  window.location.reload()  )   )} >🗑️</button>  </td>
+          <td><Link to={`/page4/${x._id}`}><button type="button" className="btn btn-outline-dark">✏️</button></Link></td>
+          <td> <button type="button" className="btn btn-outline-dark" onClick = { ()=> ( eliminarUsuario({ variables:{id:x._id}} ,  window.location.reload()  )   )} >🗑️</button>  </td>
          
         
           </tr>

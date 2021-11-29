@@ -44,26 +44,26 @@ const Page2 = () => {
 return( 
 
             
-            <button type="button" class="list-group-item list-group-item-action" onClick = { ()=>  console.log("asdf")}>Nombre: {x.nombre} Descripcion: {x.descripcion}</button>
+            <button type="button" className="list-group-item list-group-item-action" onClick = { ()=>  console.log("asdf")}>Nombre: {x.nombre} Descripcion: {x.descripcion}</button>
 )
         })}
 
 </span>
 
            
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Crear un proyecto
 </button>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog ">
-    <div class="modal-content bg-light">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Crear Nuevo Proyecto</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+<div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div className="modal-dialog ">
+    <div className="modal-content bg-light">
+      <div className="modal-header">
+        <h5 className="modal-title" id="exampleModalLabel">Crear Nuevo Proyecto</h5>
+        <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
       </div>
-      <div class="modal-body  text-center">
+      <div className="modal-body  text-center">
         <label htmlFor="">Nombre del Espacio de Trabajo</label> <br />
        
         <input type="text" placeholder="nombre del proyecto" onChange={(e)=>{ setinput1(e.target.value)}} /><br /><br />
@@ -71,9 +71,9 @@ return(
         <label htmlFor="">Descripción del Espacio de Trabajo</label> <br />
         <input type="text" placeholder="descripcion del proyecto" onChange={(e)=>{ setinput2(e.target.value)}} />
       </div>
-      <div class="modal-footer">
+      <div className="modal-footer">
         
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"  onClick = { ()=> setGlobalData([...GlobalData,{nombre:input1 , descripcion:input2} ]) } >Create the new project</button>
+        <button type="button" className="btn btn-primary" data-bs-dismiss="modal"  onClick = { ()=> setGlobalData([...GlobalData,{nombre:input1 , descripcion:input2} ]) } >Create the new project</button>
       </div>
     </div>
   </div>

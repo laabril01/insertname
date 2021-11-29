@@ -81,7 +81,7 @@ const Page4 = () => {
 <div className="TablaPerfil col-sm-6 was-validated  ">
 
   <div className="form-group row  ">
-      <div className="h1"> <i class="fas fa-user"></i></div>
+      <div className="h1"> <i className="fas fa-user"></i></div>
       <div className="h4">Perfil del usuario N° { _id} </div>
         <label for="nombreCompleto" className=" col-form-label"> <strong>nombreCompleto</strong></label>
         <div className="col-sm-10">

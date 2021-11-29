@@ -19,7 +19,8 @@ const MyNavbar = () => {
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
       </ul>
       <span className="navbar-text">
-      <Link to="/page2"><button type="button" className="btn btn-dark"  onClick = { ()=> console.log("check in") }> <i class="fas fa-user-edit"></i> Check In</button></Link>
+      <button type="button" className="btn btn-dark"  onClick = { ()=> localStorage.removeItem("TOKEN") }> <i className="fas fa-user-edit"></i> Log Out</button>
+      <Link to="/page2"><button type="button" className="btn btn-dark"  onClick = { ()=> console.log("check in") }> <i className="fas fa-user-edit"></i> Check In</button></Link>
       <Link to="/page1"><button type="button" className="btn btn-dark"  onClick = { ()=>  console.log("log in")}> <i className="fas fa-user"></i> Log In  </button></Link>
       </span>
     </div>

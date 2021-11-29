@@ -20,12 +20,12 @@ const MyNavbarClear = (props) => {
         <div className="collapse navbar-collapse" id="navbarText">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <span className="nav-link active"> <i class="fas fa-sign-in-alt"/> {props.info} </span>
+              <span className="nav-link active"> <i className="fas fa-sign-in-alt"/> {props.info} </span>
             </li>
           </ul>
 
             <span className="navbar-text">
-            <Link to="/"> <a className="nav-link active" aria-current="page" href="#"><i class="fas fa-home"></i> HOME </a></Link>
+            <Link to="/"> <a className="nav-link active" aria-current="page" href="#"><i className="fas fa-home"></i> HOME </a></Link>
             
       </span>
 

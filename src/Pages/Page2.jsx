@@ -101,7 +101,7 @@ const Page2 = () => {
     <label for="inputEmail3" className="col-sm-2 col-form-label">Email</label>
     <div className="col-sm-10">
       <input type="email" className="form-control" id="inputEmail3" placeholder="Email@algo.com" required onChange={(e)=>{ setcorreo(e.target.value)}}/>
-      <div id="validationServerUsernameFeedback" class="invalid-feedback">
+      <div id="validationServerUsernameFeedback" className="invalid-feedback">
         No es posible registrar correos repetidos 
       </div>
     </div>

@@ -15,7 +15,7 @@ const Index = () => {
 
 
 
-    const [variable1, setvariable1] = useState("nada")
+/*     const [variable1, setvariable1] = useState("nada")
 
     const [variable2, setvariable2] = useState(0)
     const [variable3, setvariable3] = useState(0)
@@ -30,7 +30,7 @@ const Index = () => {
     const funcionbutton =()=>{
             setvariable1("")
     }
-
+ */
  
 
     return (
@@ -61,7 +61,7 @@ const Index = () => {
 </div>
 
 <div className="mt-4 row col-sm-12 align-self-center justify-content-center"> <br /> <br /> 
-<span className="row col-sm-2 "> <button type="button" class="btn btn-dark"> Start Doing  <i class="fas fa-sign-out-alt"/></button></span>
+<span className="row col-sm-2 "> <button type="button" className="btn btn-dark"> Start Doing  <i className="fas fa-sign-out-alt"/></button></span>
 </div>
 
 <Link to="page1"> link para 1</Link>

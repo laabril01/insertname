@@ -7,16 +7,20 @@ import '../Styles/Page1.css';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../graphql/usuarios/mutations';
 import { useLoginContext } from '../Context/loginContex';
+import { useNavigate } from 'react-router';
 
 
 /* MODULO GESTION USUARIOS Registro */
 
 const Page1 = () => {
+  const navigatePage = useNavigate()
     
   const {setToken} = useLoginContext()
   const [login,{data:loginData,error:loginError,loading:loginLoading}] = useMutation(LOGIN)
 
-  useEffect (()=>{    if(loginData != undefined ){ setToken(loginData.login.token) }},[loginData])
+  useEffect (()=>{    if(loginData!=null){if(loginData.login.token != null){ setToken(loginData.login.token) }}
+
+    },[loginData])
 
     const [EMAIL, setEMAIL] = useState("")
     const [PASSWORD, setPASSWORD] = useState("")
@@ -40,7 +44,7 @@ const Page1 = () => {
     }
    
     
-
+    if(loginError) return <div> Datos erroneos {navigatePage("/")}</div>
     return (
         <div>
 <div className="bodyy">
