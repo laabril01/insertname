@@ -6,11 +6,13 @@ import { Outlet } from 'react-router'
 import { useLoginContext } from '../Context/loginContex'
 import { TESTTOKEN } from '../graphql/usuarios/mutations'
 import { useMutation } from '@apollo/client';
+import { useNavigate } from 'react-router';
 
 import jwt_decode from "jwt-decode";
 
 const PlantillaAdmin = (props) => {
 
+    const navigatePage = useNavigate()
 
 
     const {loginToken, setloginToken, setToken} = useLoginContext() // reviso token y lo guarda
@@ -46,7 +48,9 @@ const PlantillaAdmin = (props) => {
     if(token!=null){
         decoded = jwt_decode(token)
         console.log("este es el token decifrado " , decoded.tipoUsuario)
-    } 
+    }
+    
+    if(TESTTOKENData==null && decoded ==null){navigatePage("page1")} 
    ///////////////
 
     return (

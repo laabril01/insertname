@@ -1,5 +1,6 @@
 import React from 'react'
 import Myfootbar from '../Components/Myfootbar'
+import MyNavbarEstudiante from '../Components/MyNavbarEstudiante'
 import { useLoginContext } from '../Context/loginContex'
 import { TESTTOKEN } from '../graphql/usuarios/mutations'
 import { useMutation } from '@apollo/client';
@@ -35,7 +36,10 @@ const Plantilla2 = () => {
 
 
     return (
+
+        
         <div>
+            <MyNavbarEstudiante/>
 
         {  loginToken == null ? (<div className="h1">  NO ESTAS LOGUEADO  : ( </div>) : (<div>  <Outlet/> </div>) }
         

@@ -4,7 +4,7 @@ import "../Styles/Myfootbar.css"
 const Myfootbar = () => {
     return (
       
-<div className="nav d-flex justify-content-evenly align-items-center bg-dark text-center">
+<div className="nav d-flex justify-content-evenly align-items-center bg-dark text-center sticky-bottom  ">
   
     <a href="#" className="social-item h2"> <i className="fab fa-twitter"></i> </a>
     

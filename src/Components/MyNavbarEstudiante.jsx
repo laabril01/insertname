@@ -29,8 +29,7 @@ const MyNavbarEstudiante = () => {
         </li>
       </ul>
       <span className="navbar-text">
-      <Link to="/page2"><button type="button" className="btn btn-dark"  onClick = { ()=> console.log("check in") }> <i className="fas fa-user-edit"></i> check In</button></Link>
-      <Link to="/page1"><button type="button" className="btn btn-dark"  onClick = { ()=>  console.log("log in")}> <i className="fas fa-user"></i> Log In with <i className="fab fa-google"/></button></Link>
+      <Link to="/"> <a className="nav-link active" aria-current="page" href="#"><i className="fas fa-home"></i> HOME </a></Link>
       </span>
     </div>
   </div>

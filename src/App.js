@@ -80,17 +80,17 @@ function App() {
           <Route path="Page2" element = {<Page2/>}/>
           </Route>
 
-          <Route path="/" element = {<PlantillaAdmin/>}>
+          <Route path="/" element = {<PlantillaAdmin/>}>   {/*  este layout es solo accesible para los admin */}
           <Route path="Page3" element = {<Page3/>}/>
-          <Route path="Page4" element = {<Page4/>}/> 
-          <Route path="Page4/:_id" element = {<Page4/>}/> 
+          <Route path="Page4" element = {<Page4/>}/>       {/* para admin esta pagina es para listar usuarios*/}
+          <Route path="Page4/:_id" element = {<Page4/>}/>  {/* para admin esta pagina es rutas dinamicas para la edicion usuarios  */}
           </Route>
       
           <Route path="/" element = {<Plantilla2/>}>
           
-          <Route path="Page5" element = {<Page5/>}/> 
-          <Route path="Page6" element = {<Page6/>}/> 
-          <Route path="Page7" element = {<Page7/>}/> 
+          <Route path="Page5" element = {<Page5/>}/>        {/* para lideres o estudiantes  esta pagina es para listar proyectos ,  estudiantes se podran unir , lideres podran crear o editar*/} 
+          <Route path="Page6/:_id" element = {<Page6/>}/>   {/* sera una ruta dinamica para editar un proyecto */}
+          <Route path="Page7" element = {<Page7/>}/>        {/* para crear un proyecto */}
           <Route path="Page8" element = {<Page8/>}/> 
           </Route>
 
