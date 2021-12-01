@@ -7,6 +7,8 @@ import Page5 from "./Pages/Page5";
 import Page6 from "./Pages/Page6";
 import Page7 from "./Pages/Page7";
 import Page8 from "./Pages/Page8";
+import Page9 from "./Pages/Page9";
+import Page10 from "./Pages/Page10";
 
 import Plantilla from "./Layout/Plantilla";
 import Plantilla2 from "./Layout/Plantilla2";
@@ -92,6 +94,8 @@ function App() {
           <Route path="Page6/:_id" element = {<Page6/>}/>   {/* sera una ruta dinamica para editar un proyecto */}
           <Route path="Page7" element = {<Page7/>}/>        {/* para crear un proyecto */}
           <Route path="Page8" element = {<Page8/>}/> 
+          <Route path="Page9" element = {<Page9/>}/> 
+          <Route path="Page10" element = {<Page10/>}/> 
           </Route>
 
         </Routes>

@@ -4,11 +4,15 @@ import { useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { obtenerProyectosLite } from "../graphql/proyectos/queries";
 import '../Styles/Page5.css';
+import { ELIMINARPROYECTO } from "../graphql/proyectos/mutations";
 
 /* MODULO GESTION PROYECTOS Estudiantes */
 
 const Page5 = () => {
   const { data, error, loading } = useQuery(obtenerProyectosLite);
+
+  const [eliminarProyecto,{data:patchData,error:patchError,loading:patchLoading}] = useMutation( ELIMINARPROYECTO )
+
 
   
   useEffect(() => {
@@ -17,6 +21,11 @@ const Page5 = () => {
     if(data!=null){console.log( data.Proyectos[0].lider , "los datos anidados SON");}
   }, [data!= undefined]);
 
+
+  useEffect(() => {
+   console.log("borro algo")
+  }, [patchData]);
+
   if(loading) return <div> cargando informacion .........</div>
   return (
     <div className="bodyy">
@@ -24,6 +33,7 @@ const Page5 = () => {
  <div className="d-flex justify-content-center mt-2">
  <br />
  <Link to={`/page7/`}><button type="button" className="btn btn-outline-dark">✏️ Crear Un Nuevo Proyecto </button></Link>
+ <Link to={`/page8/`}><button type="button" className="btn btn-outline-dark">👁️ Ver y aceptar Inscripciones </button></Link>
  </div>
 
       {data && 
@@ -55,7 +65,8 @@ const Page5 = () => {
                         <p class="card-text"> <strong>Fase Del Proyecto :</strong>  {x.faseProyecto} </p>
                         <button type="button" className="btn btn-outline-dark" onClick = { ()=> ( console.log("click"))  } >✔️ Peticion de unirse al Proyecto </button>
                         <Link to={`/page6/${x._id}`}><button type="button" className="btn btn-outline-dark">✏️ Editar Proyecto </button></Link>
-
+                        <button type="button" className="btn btn-outline-dark" onClick = { ()=> ( eliminarProyecto( { variables: { id: x._id}} ) , window.location.reload( )  )   } >🚮 Eliminar Proyecto </button>
+                        
                         <p class="card-text"> 
                           <small class="text-muted">
                             Lider Del Proyecto: {x.lider.nombreCompleto} <br />

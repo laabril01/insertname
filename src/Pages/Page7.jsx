@@ -3,10 +3,19 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect} from 'react'
 import jwt_decode from "jwt-decode";
 
+import { useMutation ,useq } from '@apollo/client';
+import { CREARUNPROYECTO } from '../graphql/proyectos/mutations';
+
 /* MODULO GESTION Avances Lideres */
 
 
 const Page7 = () => {
+
+    const [crearProyecto,{data:patchData,error:patchError,loading:patchLoading}] = useMutation( CREARUNPROYECTO)
+
+    useEffect (()=>{  
+
+    },[patchData , patchError])
 
     const token = JSON.parse(localStorage.getItem('TOKEN'));
     console.log("este es el token almacenado " , token)
@@ -24,17 +33,22 @@ const Page7 = () => {
    const [fechaFin, setfechaFin] = useState("")
    const [estado, setestado] = useState("Activo")
    const [faseProyecto, setfaseProyecto] = useState("Inicial")
-   const [inscritos, setinscritos] = useState(["id_1" , "id_2"])
-   const [avances, setavances] = useState(["id_1", "id_2"])
+   const [inscritos, setinscritos] = useState([])
+   const [avances, setavances] = useState([])
    const [lider, setlider] = useState(decoded._id)
 
-   
+    
+    const items = (valor) => {
+       const arrayItems = valor.split(/,|;/)
+       return (arrayItems)
+    }
+
+    
 
     const handleSubmit = (event) => 
     {
       
-      event.preventDefault();
-      
+      event.preventDefault();  
         console.log("dato" , nombre )
         console.log("presupuesto" , presupuesto )
         console.log("objetivosGenerales" , objetivosGenerales )
@@ -47,18 +61,34 @@ const Page7 = () => {
         console.log("avances" , avances )
         console.log("lider" , lider ) 
 
+        crearProyecto({
+            variables:{
+                nombre:nombre,
+                presupuesto:presupuesto,
+                objetivosGenerales:objetivosGenerales,
+                objetivosEspecificos:objetivosEspecificios,
+                fechaInicio:fechaInicio,
+                fechaFin:fechaFin,
+                estado:estado,
+                faseProyecto:faseProyecto,
+                inscritos:inscritos,
+                avances:avances,
+                lider:lider
+
+            }
+        })
+
     
-    
-      
       
     }
 
+    
 
     return (
         <div className="bodyy">
 
             <span> soy la pagina 7</span>
-            <Link to="/"> link para Index</Link>
+            <Link to="/Page5"> ATRAS</Link>
 
 
             
@@ -85,16 +115,18 @@ const Page7 = () => {
              <div className="form-group row">
              <label for="nombre" className=" col-sm-2 col-form-label"> <strong>Objetivos Generales </strong></label>
              <div className="col-sm-10">
-             <input type="text" className="form-control" id="nombre" defaultValue={objetivosGenerales}  required onChange={(e)=>{ setobjetivosGenerales(e.target.value)}} />
+             <input type="array" className="form-control" id="nombre" defaultValue={objetivosGenerales}   required onChange={(e)=>{ setobjetivosGenerales(items(e.target.value))}} />
              </div>
              </div>  
 
              <div className="form-group row">
              <label for="nombre" className=" col-sm-2 col-form-label"> <strong>Objetivos Especificos</strong></label>
              <div className="col-sm-10">
-             <input type="text" className="form-control" id="nombre" defaultValue={objetivosEspecificios} required onChange={(e)=>{ setobjetivosEspecificios(e.target.value)}} />
+             <input type="text" className="form-control" id="nombre" defaultValue={objetivosEspecificios} required onChange={(e)=>{ setobjetivosEspecificios(items(e.target.value))}} />
              </div>
              </div>  
+
+
 
              <div className="form-group row">
              <label for="nombre" className=" col-sm-2 col-form-label"> <strong>Fecha Inicio</strong></label>
@@ -127,14 +159,14 @@ const Page7 = () => {
              <div className="form-group row">
              <label for="nombre" className=" col-sm-2 col-form-label"> <strong>Inscritos </strong></label>
              <div className="col-sm-10">
-             <input type="text" className="form-control" id="nombre" defaultValue={inscritos} required onChange={(e)=>{ setinscritos(e.target.value)}}/>
+             <input type="text" className="form-control" id="nombre" defaultValue={inscritos} disabled onChange={(e)=>{ setinscritos(items(e.target.value))}}/>
              </div>
              </div>  
 
              <div className="form-group row">
              <label for="nombre" className=" col-sm-2 col-form-label"> <strong>Avances </strong></label>
              <div className="col-sm-10">
-             <input type="text" className="form-control" id="nombre" defaultValue={avances} required onChange={(e)=>{ setavances(e.target.value)}}/>
+             <input type="text" className="form-control" id="nombre" defaultValue={avances} disabled onChange={(e)=>{ setavances(items(e.target.value))}}/>
              </div>
              </div>  
 

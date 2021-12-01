@@ -72,6 +72,8 @@ const Index = () => {
 <Link to="page6"> link para 6</Link>
 <Link to="page7"> link para 7</Link>
 <Link to="page8"> link para 8</Link>
+<Link to="page9"> link para 9</Link>
+<Link to="page10"> link para 10</Link>
 
 
 {/*             <br />

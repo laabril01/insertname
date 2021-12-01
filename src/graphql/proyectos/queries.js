@@ -15,10 +15,38 @@ query obtenerProyectos {
 }
 `
 
+const OBTENERUNPROYECTO = gql`
+  query obtenerUnProyecto($id: ID) {
+  Proyectos(_id: $id) {
+    _id
+    nombre
+    presupuesto
+    objetivosGenerales
+    objetivosEspecificos
+    fechaInicio
+    fechaFin
+    estado
+    faseProyecto
+    inscritos {
+      _id
+    }
+    lider {
+      _id
+    }
+      
+    
+    avances {
+      _id
+      
+    }
+  }
+}
+`;
 
 
 
 
 
 
-export { obtenerProyectosLite }
+
+export { obtenerProyectosLite, OBTENERUNPROYECTO }
