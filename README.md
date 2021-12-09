@@ -3,13 +3,13 @@ Equipo insertname
 FrontEnd proyecto ciclo 4 
 
 Integrantes:
-
-    Luz Angela Abril
-    Ciro Angarita Camelo
-    Leidy Romero Alvarado
-    Carlos Suarez silva
-    Andrés Rivera Vega
-
+<ul>
+  <li>Luz Angela Abril</li>
+  <li>Ciro Angarita Camelo</li>
+  <li>Leidy Romero Alvarado</li>
+  <li>Carlos Suarez silva</li>
+  <li>Andrés Rivera Vega</li>
+  </ul>
 holaaaa :) leidy romero reportandose 
 
 # Getting Started with Create React App
