@@ -1,0 +1,21 @@
+
+.TablaDeUsuarios .table{
+    margin-top: 3%;
+    background-color: rgba(77, 71, 71, 0.6);
+    color:rgb(233, 240, 240);
+    font-weight:400;
+    font-size: larger;
+
+    border: rgb(253, 253, 253) 3px solid;
+    box-shadow: 12px 12px 12px 12px rgba(0, 0, 0, 0.3);
+
+    margin-left: 5%;
+    margin-right: auto;
+    
+    
+}
+
+.TablaDeUsuarios{
+    height: 100vh;
+    
+}

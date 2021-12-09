@@ -1,0 +1,30 @@
+.registro{
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3%;
+    background-color: rgba(77, 71, 71, 0.6);
+    border: rgb(253, 253, 253) 4px solid;
+    border-radius: 10%;
+    box-shadow: 12px 12px 12px 12px rgba(0, 0, 0, 0.3);
+}
+
+.registro .form-group{
+    padding: 1%;   
+}
+
+.registro .btn{
+    
+    margin-left: 55%;
+    margin-bottom: 5%;
+    
+
+}
+
+.registro .h2{
+    margin-left: 1%;
+}
+
+.registro .from{
+    margin-bottom: 1%;
+}
