@@ -62,8 +62,10 @@ const Page4 = () => {
 
 
 
-
+    if(getError) return <div> error al obtener info  .........</div>
     if(getLoading) return <div> cargando informacion .........</div>
+    if(_id == null) return <div> No deberia estar aqui, esta es una ruta dinamica.........</div>
+
 
 
 

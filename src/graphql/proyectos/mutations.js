@@ -67,15 +67,28 @@ const EDITAPROYECTO = gql`
   }
 `;
 
-
 const ELIMINARPROYECTO = gql`
-mutation EliminarProyecto($id: ID!) {
-  eliminarProyecto(_id: $id) {
+  mutation EliminarProyecto($id: ID!) {
+    eliminarProyecto(_id: $id) {
+      _id
+    }
+  }
+`;
+
+const EDITAPROYECTOINSC = gql`
+  mutation EditarProyectoINSC($id: ID!, $inscritos: [String]) {
+    editarProyectoINSC(_id: $id, inscritos: $inscritos) {
+      _id
+    }
+  }
+`;
+
+const EDITAPROYECTOAVAN = gql`
+mutation EditarProyectoAVAN($avances: [ID], $id: ID!) {
+  editarProyectoAVAN(avances: $avances, _id: $id) {
     _id
   }
 }
 `;
 
-export { CREARUNPROYECTO , EDITAPROYECTO , ELIMINARPROYECTO };
-
-
+export { CREARUNPROYECTO, EDITAPROYECTO, ELIMINARPROYECTO, EDITAPROYECTOINSC,EDITAPROYECTOAVAN };

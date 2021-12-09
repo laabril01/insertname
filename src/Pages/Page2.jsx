@@ -129,8 +129,8 @@ const Page2 = () => {
 
     <select className="form-control" id="Estado" name="input" required onChange={(e) => (settipoUsuario(e.target.value))}>
         <option selected  disabled >Seleccione Su Rol</option>
-        <option value="Estudiante">Lider</option>
-        <option value="Lider">Estudiante</option>
+        <option value="Estudiante">Estudiante</option>
+        <option value="Lider">Lider</option>
         </select>
         <small id="inputPassword3" >
       Por defecto Estudiante si no selecciona :D 

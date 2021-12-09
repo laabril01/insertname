@@ -17,6 +17,7 @@ const Page3 = () => {
 
   const navigatePage = useNavigate()
   
+  
 
   const [eliminarUsuario,{data:deleteData,error:deleteError,loading:deleteLoading}] = useMutation(ELIMINARUSUARIO)
 

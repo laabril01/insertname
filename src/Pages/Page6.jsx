@@ -89,6 +89,7 @@ const Page6 = () => {
     }
 
     if(loading) return <div> cargando informacion .........</div>
+    if(_id == null) return <div> No deberia estar aqui, esta es una ruta dinamica.........</div>
 
     return (
         <div className="bodyy">

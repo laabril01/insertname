@@ -93,9 +93,9 @@ function App() {
           <Route path="Page5" element = {<Page5/>}/>        {/* para lideres o estudiantes  esta pagina es para listar proyectos ,  estudiantes se podran unir , lideres podran crear o editar*/} 
           <Route path="Page6/:_id" element = {<Page6/>}/>   {/* sera una ruta dinamica para editar un proyecto */}
           <Route path="Page7" element = {<Page7/>}/>        {/* para crear un proyecto */}
-          <Route path="Page8" element = {<Page8/>}/> 
-          <Route path="Page9" element = {<Page9/>}/> 
-          <Route path="Page10" element = {<Page10/>}/> 
+          <Route path="Page8" element = {<Page8/>}/>        {/* para Aceptar una inscripcion */}
+          <Route path="Page9/:filtro" element = {<Page9/>}/>        {/* Dinamica para traer los proyectos de usuario y poder crear avances sobre estos*/}
+          <Route path="Page10" element = {<Page10/>}/>   {/* sin uso actual */}
           </Route>
 
         </Routes>

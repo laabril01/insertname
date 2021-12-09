@@ -20,4 +20,26 @@ const CREARUNAINSCRIPCION = gql`
   }
 `;
 
-export {CREARUNAINSCRIPCION};
+
+const ELIMINARINSCRIPCION = gql`
+mutation EliminarInscripcion($id: ID!) {
+  eliminarInscripcion(_id: $id) {
+    _id
+  }
+}
+`;
+
+
+const EDITARINSCRIPCION = gql`
+mutation EditarInscripcion($id: ID!, $estado: String) {
+  editarInscripcion(_id: $id, estado: $estado) {
+    _id
+    estado
+    proyecto {
+      _id
+    }
+  }
+}
+`;
+
+export {CREARUNAINSCRIPCION,ELIMINARINSCRIPCION,EDITARINSCRIPCION};

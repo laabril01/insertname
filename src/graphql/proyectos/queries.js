@@ -44,9 +44,31 @@ const OBTENERUNPROYECTO = gql`
 `;
 
 
+const TRAERPROYECTOLITE = gql`
+ query Query($filtro: ID) {
+  ProyectosLite(filtro: $filtro) {
+    _id
+    nombre
+    inscritos {
+      _id
+    }
+    estado
+    faseProyecto
+    lider {
+      correo
+      nombreCompleto
+    }
+    avances {
+      descripcion
+    }
+  }
+}
+`;
 
 
 
 
 
-export { obtenerProyectosLite, OBTENERUNPROYECTO }
+
+
+export { obtenerProyectosLite, OBTENERUNPROYECTO,TRAERPROYECTOLITE }
