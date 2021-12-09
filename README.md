@@ -1,3 +1,17 @@
+Equipo insertname
+
+FrontEnd proyecto ciclo 4 
+
+Integrantes:
+
+    Luz Angela Abril
+    Ciro Angarita Camelo
+    Leidy Romero Alvarado
+    Carlos Suarez silva
+    Andrés Rivera Vega
+
+holaaaa :) leidy romero reportandose 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
